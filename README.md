@@ -28,6 +28,6 @@ import {maskEmailAddress} from "bluechip-utils-nest/string-utils"
 
 console.log(maskEmailAddress("email@email.com"))
 
-// e******ail.com
+[//] e******ail.com
 
 ```
