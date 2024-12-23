@@ -1,0 +1,39 @@
+{
+  "name": "bluechip-utils-nest",
+  "version": "1.0.0",
+  "description": "A utility package for basic nest js items",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bluechiptony/bluechip-utils-nest.git"
+  },
+  "author": "Anthony Egwu Jr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bluechiptony/bluechip-utils-nest/issues"
+  },
+  "homepage": "https://github.com/bluechiptony/bluechip-utils-nest#readme",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.2",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.4.15",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "express": "^4.21.2",
+    "neat-csv": "^7.0.0"
+  }
+}
