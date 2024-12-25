@@ -62,3 +62,12 @@ export const maskEmailAddress = (emailAddress: string) => {
   const maskedEmailAddress = maskedLocalPart + "@" + domainPart;
   return maskedEmailAddress;
 };
+
+export const slugify = (input: string): string => {
+  return input
+    .toLowerCase() // Convert to lowercase
+    .trim() // Remove leading and trailing spaces
+    .replace(/[^a-z0-9\s-]/g, "") // Remove non-alphanumeric characters (except spaces and hyphens)
+    .replace(/\s+/g, "-") // Replace spaces with hyphens
+    .replace(/-+/g, "-"); // Replace multiple hyphens with a single one
+};
