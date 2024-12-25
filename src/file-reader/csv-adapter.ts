@@ -1,13 +1,16 @@
-import { readFileSync } from "fs";
-import neatCsv from "neat-csv";
+import * as fs from "fs";
+const csv = require("csv-parser");
 
 export const readCsvFile = async (url: string): Promise<Object[]> => {
   try {
-    let fileData = await readFileSync(url).toString();
-    if (fileData.charCodeAt(0) === 0xfeff) {
-      fileData = fileData.substr(1);
-    }
-    let parsed = await neatCsv(fileData);
+    const parsed: Object[] = [];
+
+    fs.createReadStream(url)
+      .pipe(csv())
+      .on("data", (data: any) => {
+        parsed.push(data);
+      });
+
     return parsed;
   } catch (error) {
     throw new Error("Error parsing file");
