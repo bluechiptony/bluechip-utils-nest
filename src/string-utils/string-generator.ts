@@ -71,3 +71,26 @@ export const slugify = (input: string): string => {
     .replace(/\s+/g, "-") // Replace spaces with hyphens
     .replace(/-+/g, "-"); // Replace multiple hyphens with a single one
 };
+
+type UserData = {
+  [key: string]: any;
+};
+
+export const maskSensitiveData = (obj: UserData, keysToMask: string[]): UserData => {
+  const masked = { ...obj };
+
+  keysToMask.forEach((key) => {
+    if (key in masked && typeof masked[key] === "string") {
+      const value = masked[key];
+
+      if (value.length > 4) {
+        const maskedMiddle = "*".repeat(value.length - 4); // Correctly mask the middle portion
+        masked[key] = `${value.slice(0, 2)}${maskedMiddle}${value.slice(-2)}`;
+      } else {
+        masked[key] = "*".repeat(value.length); // Fully mask short strings
+      }
+    }
+  });
+
+  return masked;
+};
